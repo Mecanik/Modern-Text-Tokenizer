@@ -7,8 +7,6 @@ Unlike HuggingFace Tokenizers (Python) or ICU, this is a lightweight C++ alterna
 [![CI](https://github.com/Mecanik/Modern-Text-Tokenizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/Mecanik/Modern-Text-Tokenizer/actions/workflows/ci.yaml)
 [![License: MIT](https://img.shields.io/github/license/Mecanik/Modern-Text-Tokenizer.svg)](https://github.com/Mecanik/Modern-Text-Tokenizer/blob/main/LICENSE)
 [![C++ Standard](https://img.shields.io/badge/C%2B%2B-17%20%7C%2020-blue)](#)
-[![Lines of Code](https://img.shields.io/tokei/lines/github/Mecanik/Modern-Text-Tokenizer)](https://github.com/Mecanik/Modern-Text-Tokenizer)
-[![Repo Size](https://img.shields.io/github/repo-size/Mecanik/Modern-Text-Tokenizer)](https://github.com/Mecanik/Modern-Text-Tokenizer)
 [![Last Commit](https://img.shields.io/github/last-commit/Mecanik/Modern-Text-Tokenizer)](https://github.com/Mecanik/Modern-Text-Tokenizer/commits/main)
 [![Stars](https://img.shields.io/github/stars/Mecanik/Modern-Text-Tokenizer?style=social)](https://github.com/Mecanik/Modern-Text-Tokenizer/stargazers)
 

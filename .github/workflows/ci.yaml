@@ -27,10 +27,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up CMake
+      - name: Set up CMake (>=3.21)
         uses: jwlawson/actions-setup-cmake@v1.14
         with:
-          cmake-version: '3.20.x'
+          cmake-version: '3.8'
 
       - name: Install Ninja (Linux only)
         if: matrix.os == 'ubuntu-latest'

@@ -4,7 +4,7 @@ A high-performance, header-only C++17/20 text tokenizer for NLP and machine lear
 
 Unlike HuggingFace Tokenizers (Python) or ICU, this is a lightweight C++ alternative with no dependencies.
 
-![CI Status](https://github.com/your-username/your-repo/workflows/CI/badge.svg)
+![CI Status](https://github.com/Mecanik/Modern-Text-Tokenizer/workflows/CI/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![C++ Standard](https://img.shields.io/badge/C%2B%2B-17%2F20-blue.svg)
 
@@ -278,7 +278,7 @@ if (tokenizer.load_vocab("vocab.txt")) {
 - **UTF-8 Handling**: O(1) character boundary detection
 - **Memory**: Uses `string_view` for zero-copy input processing
 
-## 🔬 Performance
+## Performance
 
 Benchmark results on a typical text corpus:
 

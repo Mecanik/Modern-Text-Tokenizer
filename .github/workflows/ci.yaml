@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        preset: [linux-debug, linux-release, x64-debug, x64-release]
+        exclude:
+          - os: windows-latest
+            preset: linux-debug
+          - os: windows-latest
+            preset: linux-release
+          - os: ubuntu-latest
+            preset: x64-debug
+          - os: ubuntu-latest
+            preset: x64-release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up CMake
+        uses: jwlawson/actions-setup-cmake@v1.14
+        with:
+          cmake-version: '3.20.x'
+
+      - name: Install Ninja (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: sudo apt-get update && sudo apt-get install -y ninja-build
+
+      - name: Configure CMake
+        run: cmake --preset=${{ matrix.preset }}
+
+      - name: Build
+        run: cmake --build out/build/${{ matrix.preset }} --config ${{ matrix.preset == 'linux-release' || matrix.preset == 'x64-release' ? 'Release' : 'Debug' }}
+
+      - name: Download DistilBERT vocabulary
+        run: |
+          curl -o vocab.txt https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt
+
+      - name: Test
+        run: ./out/build/${{ matrix.preset }}/tokenizer_demo${{ matrix.os == 'windows-latest' ? '.exe' : '' }}
+        working-directory: ${{ github.workspace }}

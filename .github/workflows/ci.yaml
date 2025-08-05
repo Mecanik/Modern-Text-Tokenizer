@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build-and-test:
@@ -32,24 +32,41 @@ jobs:
         with:
           cmake-version: '3.20.x'
 
-      - name: Install Ninja (Linux)
+      - name: Install Ninja (Linux only)
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt-get update && sudo apt-get install -y ninja-build
 
-      - name: Configure CMake
+      - name: Configure with CMake preset
         run: cmake --preset=${{ matrix.preset }}
 
-      - name: Build
-        run: cmake --build out/build/${{ matrix.preset }} --config ${{ matrix.preset == 'linux-release' || matrix.preset == 'x64-release' ? 'Release' : 'Debug' }}
+      - name: Determine build config (Debug or Release)
+        id: config
+        run: |
+          if [[ "${{ matrix.preset }}" == *release* ]]; then
+            echo "config=Release" >> $GITHUB_OUTPUT
+          else
+            echo "config=Debug" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
+      - name: Build project
+        run: |
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            cmake --build out/build/${{ matrix.preset }} --config ${{ steps.config.outputs.config }}
+          else
+            cmake --build out/build/${{ matrix.preset }}
+          fi
+        shell: bash
 
       - name: Download DistilBERT vocabulary
         run: |
-          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+          if [[ "${{ matrix.os }}" == "ubuntu-latest" ]]; then
             curl -o vocab.txt https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt
           else
             powershell -Command "Invoke-WebRequest -Uri https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt -OutFile vocab.txt"
           fi
+        shell: bash
 
-      - name: Test
-        run: ./out/build/${{ matrix.preset }}/tokenizer_demo${{ matrix.os == 'windows-latest' ? '.exe' : '' }}
-        working-directory: ${{ github.workspace }}
+      - name: Run tests
+        run: ./out/build/${{ matrix.preset }}/tokenizer_demo${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+        shell: bash

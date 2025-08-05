@@ -71,9 +71,10 @@ jobs:
       - name: Run tests
         run: |
           if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            ./out/build/${{ matrix.preset }}/Release/Modern-Text-Tokenizer.exe
+            ./out/build/${{ matrix.preset }}/${{ steps.config.outputs.config }}/Modern-Text-Tokenizer.exe
           else
             ./out/build/${{ matrix.preset }}/Modern-Text-Tokenizer
           fi
         shell: bash
+
 

@@ -69,5 +69,11 @@ jobs:
         shell: bash
 
       - name: Run tests
-        run: ./out/build/${{ matrix.preset }}/tokenizer_demo${{ matrix.os == 'windows-latest' && '.exe' || '' }}
+        run: |
+          if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
+            ./out/build/${{ matrix.preset }}/Release/Modern-Text-Tokenizer.exe
+          else
+            ./out/build/${{ matrix.preset }}/Modern-Text-Tokenizer
+          fi
         shell: bash
+

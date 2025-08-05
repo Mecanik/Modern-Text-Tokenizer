@@ -44,7 +44,11 @@ jobs:
 
       - name: Download DistilBERT vocabulary
         run: |
-          curl -o vocab.txt https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt
+          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+            curl -o vocab.txt https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt
+          else
+            powershell -Command "Invoke-WebRequest -Uri https://huggingface.co/distilbert/distilbert-base-uncased/raw/main/vocab.txt -OutFile vocab.txt"
+          fi
 
       - name: Test
         run: ./out/build/${{ matrix.preset }}/tokenizer_demo${{ matrix.os == 'windows-latest' ? '.exe' : '' }}

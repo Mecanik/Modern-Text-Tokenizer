@@ -26,8 +26,8 @@ Unlike HuggingFace Tokenizers (Python) or ICU, this is a lightweight C++ alterna
 
 ## Requirements
 
-- C++17/20 compatible compiler (GCC 7+, Clang 5+, MSVC 2017+)
-- No external dependencies
+- **C++17/20** compatible compiler (GCC 7+, Clang 5+, MSVC 2017+)
+- **No external dependencies** - uses only standard library
 
 ## Quick Start
 

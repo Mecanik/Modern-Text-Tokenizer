@@ -351,10 +351,10 @@ Expected output includes:
 
 ### Future Considerations
 
-- **C++20 Features**: Ranges, concepts, and modules
-- **SIMD Optimization**: Vectorized string processing
-- **Memory Mapping**: For huge file processing
-- **Language Detection**: Automatic handling of different scripts
+- [ ] **C++20 Features**: Ranges, concepts, and modules
+- [ ] **SIMD Optimization**: Vectorized string processing
+- [ ] **Memory Mapping**: For huge file processing
+- [ ] **Language Detection**: Automatic handling of different scripts
 
 ## Contributing
 

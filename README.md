@@ -4,6 +4,8 @@ A high-performance, header-only C++17/20 text tokenizer for NLP and machine lear
 
 Unlike HuggingFace Tokenizers (Python) or ICU, this is a lightweight C++ alternative with no dependencies.
 
+Looking to build a custom tokenizer vocabulary? Use [Tiny BPE Trainer](https://github.com/Mecanik/Tiny-BPE-Trainer) - a fast, header-only Byte Pair Encoding (BPE) trainer in modern C++.  
+
 [![CI](https://github.com/Mecanik/Modern-Text-Tokenizer/actions/workflows/ci.yaml/badge.svg)](https://github.com/Mecanik/Modern-Text-Tokenizer/actions/workflows/ci.yaml)
 [![License: MIT](https://img.shields.io/github/license/Mecanik/Modern-Text-Tokenizer.svg)](https://github.com/Mecanik/Modern-Text-Tokenizer/blob/main/LICENSE)
 [![C++ Standard](https://img.shields.io/badge/C%2B%2B-17%20%7C%2020-blue)](#)
@@ -377,4 +379,6 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**Star this repo if you find it useful!**
+**⭐ Star this repo if you find it useful!**
+
+Built with ❤️ for the C++ and NLP community

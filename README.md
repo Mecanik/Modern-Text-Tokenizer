@@ -12,7 +12,6 @@ Looking to build a custom tokenizer vocabulary? Use [Tiny BPE Trainer](https://g
 ![Header-Only](https://img.shields.io/badge/Header--only-✔️-green)
 ![No Dependencies](https://img.shields.io/badge/Dependencies-None-brightgreen)
 [![Last Commit](https://img.shields.io/github/last-commit/Mecanik/Modern-Text-Tokenizer)](https://github.com/Mecanik/Modern-Text-Tokenizer/commits/main)
-[![Stars](https://img.shields.io/github/stars/Mecanik/Modern-Text-Tokenizer?style=social)](https://github.com/Mecanik/Modern-Text-Tokenizer/stargazers)
 
 ## Features
 

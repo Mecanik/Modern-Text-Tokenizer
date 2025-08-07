@@ -4,7 +4,7 @@
  * UTF-8 aware, high-performance C++ text tokenizer with vocabulary support.
  *
  * Author: Mecanik1337 (https://mecanik.dev/en/)
- * Repository: https://github.com/Mecanik1337/Modern-Text-Tokenizer
+ * Repository: https://github.com/Mecanik/Modern-Text-Tokenizer
  * License: MIT License
  *
  * Description:
@@ -24,6 +24,8 @@
  *  - Natural Language Processing (NLP)
  *  - Machine Learning pipelines
  *  - Embedded or performance-sensitive applications
+ *
+ * See README for usage examples, benchmarks, and integration tips.
  *
  * Contributions welcome.
  * ---------------------------------------------------------------------------
